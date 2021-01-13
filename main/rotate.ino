@@ -1,8 +1,7 @@
 // since low, MS1, MS2, MS3 connected to low 
-void rotate_left(uint8_t dir, int steps){
-  
-  
+void rotate(uint8_t motor, int steps){
+  digitalWrite(motor+difference, HIGH);
 }
-void rotate_right(uint8_t dir){
-  
+void rotatePrime(uint8_t motor, int steps){
+  digitalWrite(motor+difference, LOW);
 }
