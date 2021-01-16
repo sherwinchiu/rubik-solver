@@ -22,17 +22,24 @@
 const byte eighthRotation = 25;  // 45 degrees, pi/4 radians
 const byte quarterRotation = 50; // 90 degrees, pi/2 radians
 const byte halfRotation = 100;   // 180 degrees, pi radians
-const byte fullRevolution = 200; // 360 degrees, 2pi radians
+const byte fullRotation = 200; // 360 degrees, 2pi radians
 
 void setup() {
-  // All output ports based on Arduino Uno 
-  //PORTD = B11111111;
-  //DDRB = B11111111;
-  Serial.begin(9600);
+    // All output ports based on Arduino Uno 
+    for(int i = 2; i < 10; i++){
+        pinMode(i, OUTPUT);
+    }
+    
+    //PORTD = B11111111;
+    //DDRB = B11111111;
+    Serial.begin(9600);
   
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+    // put your main code here, to run repeatedly:
+    rotate(stepWhite);
+    delay(2500);
+    rotatePrime(stepWhite);
+    delay(2500);
 }
