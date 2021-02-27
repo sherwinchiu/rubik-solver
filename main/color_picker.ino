@@ -1,4 +1,4 @@
-void find_color(){
+void findColor(){
     uint16_t r, g, b, c, colorTemp, lux;
  
     tcs.getRawData(&r, &g, &b, &c);

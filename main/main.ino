@@ -47,5 +47,9 @@ void setup() {
 
 void loop() {
     // put your main code here, to run repeatedly:
-    find_color();
+    findColor();
+}
+
+void initColorSensors(){
+    
 }
