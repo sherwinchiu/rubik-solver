@@ -4,7 +4,13 @@
 #include <Wire.h>
 #include "Adafruit_TCS34725.h"
 
+#define  inPin  7
+#define  rPin   8
+#define  gPin   9
+#define  bPin   10
+
 byte multiAddress = 0x70;
+byte count = 0;
 
 char data[6][3] = {{'r', 'g', 'b'},
                  {'r', 'g', 'b'},
@@ -18,15 +24,32 @@ Adafruit_TCS34725 tcs[] = {Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS
                            Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X),
                            Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X),
                            Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X)};
+
+
 void setup(){
     Serial.begin(9600);
     Wire.begin();
+    pinMode(inPin, INPUT);
+    pinMode(rPin, OUTPUT);
+    pinMode(gPin, OUTPUT);
+    pinMode(bPin, OUTPUT);
     initColorSensors();
 }
 void loop(){
-    for(int i = 0; i < sizeof(data); i++){
-        readColors(i);
+    //for(int i = 0; i < sizeof(data); i++){ // get all colors... not necessary right now 
+    //    readColors(i);
+    //}
+    Serial.println(digitalRead(inPin));
+    if(digitalRead(inPin)){
+        readColors(count);
+        displayLED(data[count][0], data[count][1], data[count][2]);
+        count++;
+        if(count > 5){
+            count = 0;
+        }
+        delay(500);
     }
+    
     
 }
 void initColorSensors(){
@@ -55,6 +78,12 @@ void readColors(byte sensorNum){
 
 void chooseBus(uint8_t bus){
     Wire.beginTransmission(0x70);
-    Wire.write(1 << bus);
+    Wire.write(1 << (bus+2)); // will be using 2-7 instead of 0-6 because of convience (placed better on the breadboard)
     Wire.endTransmission();
+}
+void displayLED(uint16_t r, uint16_t g, uint16_t b){
+    analogWrite(rPin, r);
+    analogWrite(gPin, g);
+    analogWrite(bPin, b); 
+    
 }
