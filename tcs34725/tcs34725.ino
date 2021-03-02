@@ -18,12 +18,12 @@ char data[6][3] = {{'r', 'g', 'b'},
                  {'r', 'g', 'b'},
                  {'r', 'g', 'b'},
                  {'r', 'g', 'b'}};
-Adafruit_TCS34725 tcs[] = {Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X),
-                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X)};
+Adafruit_TCS34725 tcs[] = {Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_1X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_1X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_1X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_1X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_1X),
+                           Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_1X)};
 
 
 void setup(){
@@ -39,21 +39,23 @@ void loop(){
     //for(int i = 0; i < sizeof(data); i++){ // get all colors... not necessary right now 
     //    readColors(i);
     //}
-    Serial.println(digitalRead(inPin));
-    if(digitalRead(inPin)){
+    for(int i = 0; i < 5; i++){
         readColors(count);
-        displayLED(data[count][0], data[count][1], data[count][2]);
+    }
+    //displayLED(data[count][0], data[count][1], data[count][2]);
+    if(digitalRead(inPin)){
         count++;
         if(count > 5){
             count = 0;
         }
-        delay(500);
+        delay(300);
     }
     
     
 }
 void initColorSensors(){
-    for(int i = 0; i < sizeof(data); i++){
+    for(int i = 0; i < 6; i++){
+        Serial.println(i);
         chooseBus(i);
         if (tcs[i].begin()){
             Serial.print("Found sensor "); Serial.println(i+1);
@@ -73,12 +75,13 @@ void readColors(byte sensorNum){
     Serial.print("R: "); Serial.print(r, DEC); Serial.print(" "); 
     Serial.print("G: "); Serial.print(g, DEC); Serial.print(" ");
     Serial.print("B: "); Serial.print(b, DEC); Serial.print(" ");
+    displayLED(r, g, b);
     Serial.println(sensorNum);
 }
 
 void chooseBus(uint8_t bus){
     Wire.beginTransmission(0x70);
-    Wire.write(1 << (bus+2)); // will be using 2-7 instead of 0-6 because of convience (placed better on the breadboard)
+    Wire.write(1 << (bus+2)); // will be using 2-7 instead of 0-5 because of convience (placed better on the breadboard)
     Wire.endTransmission();
 }
 void displayLED(uint16_t r, uint16_t g, uint16_t b){
