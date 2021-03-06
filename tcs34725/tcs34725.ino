@@ -11,6 +11,7 @@
 
 byte multiAddress = 0x70;
 byte count = 0;
+int currentTime = 0;
 
 char data[6][3] = {{'r', 'g', 'b'},
                  {'r', 'g', 'b'},
@@ -29,7 +30,7 @@ byte gammatable[256];
 void setup(){
     Serial.begin(9600);
     Wire.begin();
-    pinMode(inPin, INPUT);
+    pinMode(inPin, INPUT_PULLUP);
     pinMode(rPin, OUTPUT);
     pinMode(gPin, OUTPUT);
     pinMode(bPin, OUTPUT);
@@ -42,6 +43,7 @@ void setup(){
         gammatable[i] = x;
     }
     initColorSensors();
+    attachInterrupt(digitalPinToInterrupt(inPin), changeLED, CHANGE);
 }
 void loop(){
     //for(int i = 0; i < sizeof(data); i++){ // get all colors... not necessary right now 
@@ -50,16 +52,17 @@ void loop(){
     for(int i = 0; i < 5; i++){
         readColors(count);
     }
-    //displayLED(data[count][0], data[count][1], data[count][2]);
-    if(digitalRead(inPin)){
+    
+}
+void changeLED(){
+    if(millis() - currentTime > 200){
         count++;
-        if(count > 5){
-            count = 0;
-        }
-        delay(300);
+        currentTime = millis();
     }
-    
-    
+    if(count > 5){
+        count = 0;
+    }
+   
 }
 void initColorSensors(){
     for(int i = 0; i < 6; i++){
