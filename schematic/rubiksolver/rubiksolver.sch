@@ -604,25 +604,6 @@ Wire Wire Line
 	2250 955  3005 955 
 Wire Wire Line
 	1230 4955 1225 4955
-Wire Wire Line
-	795  4955 795  3900
-Connection ~ 1225 4955
-Wire Wire Line
-	1225 4955 795  4955
-Wire Wire Line
-	795  3900 1325 3900
-$Comp
-L Device:R R1
-U 1 1 5FEAE06C
-P 1475 3900
-F 0 "R1" V 1268 3900 50  0000 C CNN
-F 1 "R10k" V 1359 3900 50  0000 C CNN
-F 2 "" V 1405 3900 50  0001 C CNN
-F 3 "~" H 1475 3900 50  0001 C CNN
-	1    1475 3900
-	0    1    1    0   
-$EndComp
-Connection ~ 1625 3900
 Text GLabel 1225 4455 0    50   Input ~ 0
 I2CIN
 Text GLabel 1225 4555 0    50   Input ~ 0
