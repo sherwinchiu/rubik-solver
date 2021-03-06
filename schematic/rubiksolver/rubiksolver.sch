@@ -90,7 +90,7 @@ F 3 "http://www.ti.com/lit/ds/symlink/tca9548a.pdf" H 1675 5405 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L TCS:TCS34725 U2
+L rubiksolver-rescue:TCS34725-TCS U2
 U 1 1 5FDCE038
 P 3045 4550
 F 0 "U2" H 3045 4525 50  0000 C CNN
@@ -650,29 +650,29 @@ Wire Wire Line
 Connection ~ 1000 5655
 Wire Wire Line
 	1000 6240 1000 5655
-Text GLabel 2025 4455 2    50   Input ~ 0
-SC0
-Text GLabel 2025 4555 2    50   Input ~ 0
-SD0
-Text GLabel 2025 4655 2    50   Input ~ 0
-SC1
-Text GLabel 2025 4755 2    50   Input ~ 0
-SD1
 Text GLabel 2025 4855 2    50   Input ~ 0
-SC2
+SC0
 Text GLabel 2025 4955 2    50   Input ~ 0
-SD2
+SD0
 Text GLabel 2025 5055 2    50   Input ~ 0
-SC3
+SC1
 Text GLabel 2025 5155 2    50   Input ~ 0
-SD3
+SD1
 Text GLabel 2025 5255 2    50   Input ~ 0
-SC4
+SC2
 Text GLabel 2025 5355 2    50   Input ~ 0
-SD4
+SD2
 Text GLabel 2025 5455 2    50   Input ~ 0
-SC5
+SC3
 Text GLabel 2025 5555 2    50   Input ~ 0
+SD3
+Text GLabel 2025 5655 2    50   Input ~ 0
+SC4
+Text GLabel 2025 5755 2    50   Input ~ 0
+SD4
+Text GLabel 2025 5855 2    50   Input ~ 0
+SC5
+Text GLabel 2025 5955 2    50   Input ~ 0
 SD5
 Text GLabel 1455 3440 3    50   Input ~ 0
 GND
@@ -689,28 +689,9 @@ Wire Wire Line
 	1625 6240 3045 6240
 Wire Wire Line
 	3045 6240 3045 5400
-$Comp
-L Device:R R2
-U 1 1 5FF151B2
-P 3450 4600
-F 0 "R2" H 3520 4646 50  0000 L CNN
-F 1 "R10k" H 3520 4555 50  0000 L CNN
-F 2 "" V 3380 4600 50  0001 C CNN
-F 3 "~" H 3450 4600 50  0001 C CNN
-	1    3450 4600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3345 4850 3450 4850
-Wire Wire Line
-	3450 4850 3450 4750
-Wire Wire Line
-	3450 4450 3450 3900
-Wire Wire Line
-	3450 3900 3045 3900
 Connection ~ 3045 3900
 $Comp
-L TCS:TCS34725 U3
+L rubiksolver-rescue:TCS34725-TCS U3
 U 1 1 5FF2369D
 P 4000 4550
 F 0 "U3" H 4000 4525 50  0000 C CNN
@@ -729,22 +710,7 @@ Wire Wire Line
 Wire Wire Line
 	4000 6240 4000 5400
 $Comp
-L Device:R R3
-U 1 1 5FF236A7
-P 4405 4600
-F 0 "R3" H 4475 4646 50  0000 L CNN
-F 1 "R10k" H 4475 4555 50  0000 L CNN
-F 2 "" V 4335 4600 50  0001 C CNN
-F 3 "~" H 4405 4600 50  0001 C CNN
-	1    4405 4600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4300 4850 4405 4850
-Wire Wire Line
-	4405 4850 4405 4750
-$Comp
-L TCS:TCS34725 U4
+L rubiksolver-rescue:TCS34725-TCS U4
 U 1 1 5FF2B39B
 P 4950 4555
 F 0 "U4" H 4950 4530 50  0000 C CNN
@@ -759,22 +725,7 @@ SC2
 Text GLabel 4650 5005 0    50   Input ~ 0
 SD2
 $Comp
-L Device:R R4
-U 1 1 5FF2B3A5
-P 5355 4605
-F 0 "R4" H 5425 4651 50  0000 L CNN
-F 1 "R10k" H 5425 4560 50  0000 L CNN
-F 2 "" V 5285 4605 50  0001 C CNN
-F 3 "~" H 5355 4605 50  0001 C CNN
-	1    5355 4605
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5250 4855 5355 4855
-Wire Wire Line
-	5355 4855 5355 4755
-$Comp
-L TCS:TCS34725 U5
+L rubiksolver-rescue:TCS34725-TCS U5
 U 1 1 5FF33485
 P 5910 4555
 F 0 "U5" H 5910 4530 50  0000 C CNN
@@ -784,57 +735,12 @@ F 3 "" H 5910 4555 50  0001 C CNN
 	1    5910 4555
 	1    0    0    -1  
 $EndComp
-Text GLabel 5610 4905 0    50   Input ~ 0
-SC3
 Text GLabel 5610 5005 0    50   Input ~ 0
 SD3
-$Comp
-L Device:R R5
-U 1 1 5FF3348F
-P 6315 4605
-F 0 "R5" H 6385 4651 50  0000 L CNN
-F 1 "R10k" H 6385 4560 50  0000 L CNN
-F 2 "" V 6245 4605 50  0001 C CNN
-F 3 "~" H 6315 4605 50  0001 C CNN
-	1    6315 4605
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6210 4855 6315 4855
-Wire Wire Line
-	6315 4855 6315 4755
-$Comp
-L TCS:TCS34725 U6
-U 1 1 5FF3AED2
-P 6850 4555
-F 0 "U6" H 6850 4530 50  0000 C CNN
-F 1 "TCS34725" H 6850 4439 50  0000 C CNN
-F 2 "" H 6850 4555 50  0001 C CNN
-F 3 "" H 6850 4555 50  0001 C CNN
-	1    6850 4555
-	1    0    0    -1  
-$EndComp
-Text GLabel 6550 4905 0    50   Input ~ 0
-SC4
 Text GLabel 6550 5005 0    50   Input ~ 0
 SD4
 $Comp
-L Device:R R6
-U 1 1 5FF3AEDC
-P 7255 4605
-F 0 "R6" H 7325 4651 50  0000 L CNN
-F 1 "R10k" H 7325 4560 50  0000 L CNN
-F 2 "" V 7185 4605 50  0001 C CNN
-F 3 "~" H 7255 4605 50  0001 C CNN
-	1    7255 4605
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7150 4855 7255 4855
-Wire Wire Line
-	7255 4855 7255 4755
-$Comp
-L TCS:TCS34725 U7
+L rubiksolver-rescue:TCS34725-TCS U7
 U 1 1 5FF42F52
 P 7800 4550
 F 0 "U7" H 7800 4525 50  0000 C CNN
@@ -844,49 +750,21 @@ F 3 "" H 7800 4550 50  0001 C CNN
 	1    7800 4550
 	1    0    0    -1  
 $EndComp
-Text GLabel 7500 4900 0    50   Input ~ 0
-SC5
 Text GLabel 7500 5000 0    50   Input ~ 0
 SD5
 Wire Wire Line
 	7800 3900 7800 4500
 Wire Wire Line
 	7800 6240 7800 5400
-$Comp
-L Device:R R7
-U 1 1 5FF42F5C
-P 8205 4600
-F 0 "R7" H 8275 4646 50  0000 L CNN
-F 1 "R10k" H 8275 4555 50  0000 L CNN
-F 2 "" V 8135 4600 50  0001 C CNN
-F 3 "~" H 8205 4600 50  0001 C CNN
-	1    8205 4600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8100 4850 8205 4850
-Wire Wire Line
-	8205 4850 8205 4750
-Wire Wire Line
-	3450 3900 4000 3900
-Connection ~ 3450 3900
-Wire Wire Line
-	4000 3900 4405 3900
 Wire Wire Line
 	4950 3900 4950 4505
 Connection ~ 4000 3900
 Wire Wire Line
-	4950 3900 5355 3900
-Wire Wire Line
 	5910 3900 5910 4505
 Connection ~ 4950 3900
 Wire Wire Line
-	5910 3900 6315 3900
-Wire Wire Line
 	6850 3900 6850 4505
 Connection ~ 5910 3900
-Wire Wire Line
-	6850 3900 7255 3900
 Connection ~ 6850 3900
 Connection ~ 3045 6240
 Wire Wire Line
@@ -909,31 +787,33 @@ Connection ~ 5910 6240
 Wire Wire Line
 	6850 6240 7800 6240
 Connection ~ 6850 6240
-Wire Wire Line
-	4405 4450 4405 3900
-Connection ~ 4405 3900
-Wire Wire Line
-	4405 3900 4950 3900
-Wire Wire Line
-	5355 4455 5355 3900
-Connection ~ 5355 3900
-Wire Wire Line
-	5355 3900 5910 3900
-Wire Wire Line
-	6315 4455 6315 3900
-Connection ~ 6315 3900
-Wire Wire Line
-	6315 3900 6850 3900
-Connection ~ 7255 3900
-Wire Wire Line
-	7255 3900 7800 3900
-Wire Wire Line
-	7255 3900 7255 4455
-Wire Wire Line
-	8205 4450 8205 3900
-Wire Wire Line
-	8205 3900 7800 3900
-Connection ~ 7800 3900
 Text Notes 4090 3800 0    50   ~ 0
 Add capacitors as needed\n
+Wire Wire Line
+	3045 3900 4000 3900
+Wire Wire Line
+	4000 3900 4950 3900
+Text GLabel 5610 4905 0    50   Input ~ 0
+SC3
+Wire Wire Line
+	4950 3900 5910 3900
+Wire Wire Line
+	5910 3900 6850 3900
+Text GLabel 6550 4905 0    50   Input ~ 0
+SC4
+$Comp
+L rubiksolver-rescue:TCS34725-TCS U6
+U 1 1 5FF3AED2
+P 6850 4555
+F 0 "U6" H 6850 4530 50  0000 C CNN
+F 1 "TCS34725" H 6850 4439 50  0000 C CNN
+F 2 "" H 6850 4555 50  0001 C CNN
+F 3 "" H 6850 4555 50  0001 C CNN
+	1    6850 4555
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 3900 7800 3900
+Text GLabel 7500 4900 0    50   Input ~ 0
+SC5
 $EndSCHEMATC
